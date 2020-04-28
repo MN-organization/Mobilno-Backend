@@ -32,13 +32,14 @@ app.use((req, res, next) => {
 
 
 app.get("/oglasi/pretraga", (req, res, next) => {
+    console.log(req.url);
 
     const queryObject = url.parse(req.url, true).query;
 
     let query = {};
     if (queryObject.marka) query.marka = queryObject.marka;
     if (queryObject.model) query.model = queryObject.model;
-    if (queryObject.gorivo) query.vrstaGoriva = queryObject.gorivo;
+    if (queryObject.gorivo) query.gorivo = queryObject.gorivo;
 
     if (queryObject.cenaOd && queryObject.cenaDo){
         query.cena = {$gte: +queryObject.cenaOd,$lte: +queryObject.cenaDo};
