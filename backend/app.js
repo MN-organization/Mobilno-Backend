@@ -31,8 +31,8 @@ app.use((req, res, next) => {
 });
 
 
-app.post("/oglasi/pretraga", (req, res, next) => {
-    console.log(req.body);
+app.get("/oglasi/pretraga", (req, res, next) => {
+    console.log(req.url);
 
     const queryObject = url.parse(req.url, true).query;
 
