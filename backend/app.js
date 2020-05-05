@@ -230,11 +230,10 @@ app.post("/user/login", (req, res, next) => {
         const token = jwt.sign(
             {email: userZaVracanje.email, userId: userZaVracanje._id},
             'marko_kastratovic_nemanja_kontic',
-            {expiresIn: 3600});
+            //{expiresIn: 3600} //da bi radio autologin
+            );
         res.status(200).json({
             token: token
-            // expiresIn: 3600,
-            // userId: userZaVracanje._id
         });
     }).catch(err => {
         return res.status(401).json({poruka: 'Autentikacija nije uspela'});
